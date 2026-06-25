@@ -1,0 +1,12 @@
+oke pada  praktik ini kita akan mempelajari 
+bagaimana menampilkan text/password yang ada 
+pada file bernama  --spaces in this filename--
+ada 2 cara:
+  cara 1 : mengunakan regex 
+cat ./--spaces\ in\ this\ filename--
+  cara 2 : tanpa regex menggunakan ""
+cat "./--spaces in this filename--"
+
+password akan muncul seperti ini
+
+7ZZ2LFrykP2zEyvBl4m3clcL7tGYJPME

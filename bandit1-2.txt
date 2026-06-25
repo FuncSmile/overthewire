@@ -1,0 +1,15 @@
+disini praktik yanh di pelajari yaitu cara membaca
+file "-"(dash). disini kita tidak bisa melakukan
+command "cat -" karena dari sumber yang saya tahu
+
+https://stackoverflow.com/questions/42187323/how-to-open-a-dashed-filename-using-terminal
+katanya penggunaan tanda "-" sebagai argumen 
+mengacu pada STDIN/STDOUT , yaitu dev/stdin atau 
+dev/stdout . Jadi, jika Anda ingin membuka jenis file 
+ini, Anda harus menentukan lokasi lengkap file 
+tersebut, misalnya ./- jadi command yang benar itu
+
+cat ./-
+
+dan password nya akan terlihat
+ "PK8fYLZg2hnHSz83plBL1iEPKdD3QToB"

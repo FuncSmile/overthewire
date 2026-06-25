@@ -1,0 +1,20 @@
+oke disini kita akan praktik untuk mencari
+password di banyak file yang ada pada dalam 
+direktori inhere/
+
+dan di dalam direktori ini akan ada banyak file 
+nama filenya -file00 smapai -file09 tantangannya
+kita di minta untuk mencari passowrd yang hanya
+dapat di baca oleh mata manusia atau berupa
+huruf alfabet
+
+cara pengerjaan nya ada banyak cara:
+  cara pemula
+	cat ./-file00 
+	cat ./-file01
+	DST...
+  cara gambling
+	cat ./-file0*
+	
+
+6C7h9GD8M6ai5nr7wo1RonrzFjj9yIrG

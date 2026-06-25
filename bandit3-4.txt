@@ -1,0 +1,19 @@
+oke pada praktik kali ini simple kita hanya perlu
+mengetahui 2 command ini
+- cd
+- ls
+
+cd artiya change direktori. disini kita akan di 
+beritahu kalau password ada di dalam direktori 
+inhere/ bukan lagi direktori home seperti sebelumnya
+
+lalu ls adalah list. di beri tahu juga kalau 
+ada hidden file yang berarti itu password yang
+di sembunyikan 
+
+jadi commandnya 
+
+cd inhere/      # ini untuk berpindah ke direktori
+ls -a           # inj untuk melihat file tersembunyi gunakan flag -a untuk tidak mengignore hidden file
+
+xzTXq1rDJQVVAzdv5cHq1TQytTWufAMq
