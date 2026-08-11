@@ -1,0 +1,35 @@
+================================================================================
+                     OVERTHEWIRE: BANDIT LEVEL 8 -> LEVEL 9
+================================================================================
+			EjmOSvuAu7sGAHqHVcBDPirRe9T03kxl
+[ KETERANGAN TANTANGAN ]
+--------------------------------------------------------------------------------
+Password untuk level berikutnya tersimpan di dalam file 'data.txt' dan merupakan 
+SATU-SATUNYA baris teks yang hanya muncul TEPAT SATU KALI (unik).
+
+--------------------------------------------------------------------------------
+[ COMMAND SOLUSI ]
+--------------------------------------------------------------------------------
+
+Command Utama (100% Correct & Efficient):
+   sort data.txt | uniq -u
+
+--------------------------------------------------------------------------------
+[ PENJELASAN DETAIL KOMPONEN COMMAND ]
+--------------------------------------------------------------------------------
+
++--------------------+---------------------------------------------------------+
+| Argumen / Sintaks  | Fungsi & Penjelasan Teknikal                            |
++--------------------+---------------------------------------------------------+
+| sort data.txt      | Mengurutkan seluruh baris di 'data.txt' secara alfabetis.|
+|                    | Syarat mutlak sebelum memakai 'uniq', karena 'uniq'     |
+|                    | hanya mendeteksi duplikasi pada baris yang berdampingan.|
+|                    |                                                         |
+| | (Pipe)           | Mengalirkan output dari 'sort' secara langsung menjadi  |
+|                    | input untuk perintah 'uniq'.                            |
+|                    |                                                         |
+| uniq -u            | Menyaring stream teks dan HANYA mencetak baris yang     |
+|                    | unik (muncul tepat 1 kali / '-u' = unique).             |
++--------------------+---------------------------------------------------------+
+
+================================================================================

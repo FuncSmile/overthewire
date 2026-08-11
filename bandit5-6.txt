@@ -1,0 +1,60 @@
+\================================================================================
+                     OVERTHEWIRE: BANDIT LEVEL 5 -> LEVEL 6
+================================================================================
+			pXa26xhMWaC2SvDotA4r9EgZkulOeSBW
+[ KETERANGAN TANTANGAN ]
+--------------------------------------------------------------------------------
+Password untuk level berikutnya tersimpan di salah satu file di dalam direktori 
+'inhere/' dengan kriteria spesifik berikut:
+1. Human-readable (dapat dibaca oleh manusia / teks biasa)
+2. Ukuran file tepat 1033 bytes
+3. Not executable (tidak memiliki permission untuk dieksekusi)
+
+--------------------------------------------------------------------------------
+[ COMMAND SOLUSI (ONE-LINER) ]
+--------------------------------------------------------------------------------
+
+1. Opsi Mencari & Menampilkan Lokasi File:
+   find inhere/ -type f -size 1033c ! -executable -exec file {} + | grep "text"
+
+2. Opsi Langsung Membaca Password (Rekomendasi):
+   find inhere/ -type f -size 1033c ! -executable -exec cat {} \;
+
+--------------------------------------------------------------------------------
+[ PENJELASAN DETAIL ARGUMEN COMMAND ]
+--------------------------------------------------------------------------------
+
++-------------------+----------------------------------------------------------+
+| Argumen           | Fungsi / Penjelasan                                      |
++-------------------+----------------------------------------------------------+
+| find inhere/      | Menginstruksikan 'find' untuk mulai mencari secara       |
+|                   | rekursif dari dalam direktori 'inhere/'.                 |
+|                   |                                                          |
+| -type f           | Membatasi pencarian hanya pada file regular (file biasa),|
+|                   | mengabaikan direktori atau symbolic link.                |
+|                   |                                                          |
+| -size 1033c       | Filter ukuran file. Suffix 'c' menentukan satuan bytes   |
+|                   | (characters). Berarti mencari file yang berukuran tepat  |
+|                   | 1033 bytes.                                              |
+|                   |                                                          |
+| ! -executable     | Tanda '!' melambangkan negasi (NOT). Kombinasi ini       |
+|                   | menyaring file yang TIDAK memiliki hak akses eksekusi.  |
+|                   |                                                          |
+| -exec cat {} \;   | Menjalankan perintah 'cat' pada setiap file yang cocok.  |
+|                   | Toples '{}' akan diganti dengan nama file yang ditemukan,|
+|                   | dan '\;' menandakan akhir dari argumen -exec.            |
++-------------------+----------------------------------------------------------+
+
+--------------------------------------------------------------------------------
+[ TROUBLESHOOTING & ALTERNATIF ]
+--------------------------------------------------------------------------------
+
+Jika ingin mengecek tipe file secara manual terlebih dahulu sebelum membaca consumes:
+
+1. Temukan file dengan metadata yang cocok:
+   find inhere/ -type f -size 1033c ! -executable
+
+2. Jalankan perintah 'file' untuk memastikan kontennya adalah ASCII text:
+   file ./inhere/maybehere07/.file2  # (Contoh path file hasil temuan)
+
+================================================================================

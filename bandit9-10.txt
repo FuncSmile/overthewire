@@ -1,0 +1,38 @@
+================================================================================
+                     OVERTHEWIRE: BANDIT LEVEL 9 -> LEVEL 10
+================================================================================
+			B0s2khmbT9u0geKuOoVGW3JZKhndE3BG
+[ KETERANGAN TANTANGAN ]
+--------------------------------------------------------------------------------
+Password tersimpan di dalam file 'data.txt' (berformat binary) pada salah satu 
+string yang human-readable, diawali dengan beberapa karakter '='.
+
+--------------------------------------------------------------------------------
+[ COMMAND SOLUSI ]
+--------------------------------------------------------------------------------
+
+1. Opsi Presisi (Regex Beginning of Line):
+   strings data.txt | grep "^="
+
+2. Opsi Fleksibel:
+   strings data.txt | grep "=="
+
+--------------------------------------------------------------------------------
+[ PENJELASAN DETAIL KOMPONEN COMMAND ]
+--------------------------------------------------------------------------------
+
++--------------------+---------------------------------------------------------+
+| Argumen / Sintaks  | Fungsi & Penjelasan Teknikal                            |
++--------------------+---------------------------------------------------------+
+| strings data.txt   | Mengekstrak dan mencetak karakter printable ASCII       |
+|                    | (dapat dibaca manusia) dari dalam file binary data.txt. |
+|                    | Mengabaikan karakter sampah/non-printable.              |
+|                    |                                                         |
+| | (Pipe)           | Mengalirkan output dari 'strings' langsung ke 'grep'.   |
+|                    |                                                         |
+| grep "^="          | Menyaring string menggunakan Regular Expression (Regex).|
+|                    | Tanda '^' memastikan baris yang dicari DIAWALI dengan   |
+|                    | karakter '='.                                           |
++--------------------+---------------------------------------------------------+
+
+================================================================================

@@ -1,0 +1,22 @@
+================================================================================
+                     OVERTHEWIRE: BANDIT LEVEL 7 -> LEVEL 8
+================================================================================
+			VR1ljMayciFxbnUokuQmJFw6QC9VKtub
+[ KETERANGAN TANTANGAN ]
+--------------------------------------------------------------------------------
+Password tersimpan di dalam file 'data.txt', tepat di sebelah kata 'millionth'.
+
+[ COMMAND SOLUSI ]
+--------------------------------------------------------------------------------
+1. Cara CLI / Grep (Rekomendasi):
+   grep "millionth" data.txt
+
+2. Ekstraksi Langsung Password (AWK Pipe):
+   grep "millionth" data.txt | awk '{print $2}'
+
+[ PENJELASAN COMMAND ]
+--------------------------------------------------------------------------------
+- grep "millionth" : Memindai file 'data.txt' secara terstruktur dan hanya 
+                     menampilkan baris yang mencocokkan string "millionth".
+- awk '{print $2}'  : Memotong output kolom kedua (yaitu string password).
+================================================================================

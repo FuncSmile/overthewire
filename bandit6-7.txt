@@ -1,0 +1,55 @@
+================================================================================
+                     OVERTHEWIRE: BANDIT LEVEL 6 -> LEVEL 7
+================================================================================
+			Bmnnvf82KzQlfxgAI2d1zYbr1u9pr3E3
+[ KETERANGAN TANTANGAN ]
+--------------------------------------------------------------------------------
+Password untuk level berikutnya tersimpan di suatu tempat di dalam server 
+dengan kriteria spesifik berikut:
+1. Owned by user   : bandit7
+2. Owned by group  : bandit6
+3. Size            : 33 bytes
+4. Type            : Regular File
+
+--------------------------------------------------------------------------------
+[ COMMAND SOLUSI ]
+--------------------------------------------------------------------------------
+
+1. Opsi Mencari Path File:
+   find / -user bandit7 -group bandit6 -size 33c -type f 2>/dev/null
+
+2. Opsi Langsung Membaca Password (One-Liner):
+   find / -user bandit7 -group bandit6 -size 33c -type f -exec cat {} \; 2>/dev/null
+
+--------------------------------------------------------------------------------
+[ PENJELASAN DETAIL KOMPONEN COMMAND ]
+--------------------------------------------------------------------------------
+
++--------------------+---------------------------------------------------------+
+| Argumen / Sintaks  | Fungsi & Penjelasan Teknikal                            |
++--------------------+---------------------------------------------------------+
+| find               | Utility CLI Linux untuk mencari file/direktori          |
+|                    | berdasarkan kriteria metadata.                          |
+|                    |                                                         |
+| /                  | Direktori awal pencarian. Tanda '/' (root) menginstruksi|
+|                    | sistem untuk menelusuri seluruh filesystem.             |
+|                    |                                                         |
+| -user bandit7      | Filter kepemilikan user (File Owner).                   |
+|                    |                                                         |
+| -group bandit6     | Filter kepemilikan grup (Group Owner).                  |
+|                    |                                                         |
+| -size 33c          | Filter ukuran file presisi. Suffix 'c' melambangkan    |
+|                    | satuan bytes (33 bytes).                                |
+|                    |                                                         |
+| -type f            | Membatasi pencarian hanya pada regular file (file       |
+|                    | biasa), mengabaikan folder, socket, atau symlink.       |
+|                    |                                                         |
+| 2>/dev/null        | Stream I/O Redirection:                                 |
+|                    | - '2' : File Descriptor untuk STDERR (Standard Error).  |
+|                    | - '>' : Menimpa/mengalihkan output.                     |
+|                    | - '/dev/null' : Blackhole / tempat sampah virtual.      |
+|                    | Fungsi: Membuang semua error "Permission denied" agar   |
+|                    | output terminal tetap bersih.                           |
++--------------------+---------------------------------------------------------+
+
+================================================================================
